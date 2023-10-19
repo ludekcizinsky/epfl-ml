@@ -23,8 +23,7 @@ def ridge_regression(y, tx, lambda_):
     >>> ridge_regression(np.array([0.1,0.2]), np.array([[2.3, 3.2], [1., 0.1]]), 1)
     array([0.03947092, 0.00319628])
     """
-    # ***************************************************
-    # COPY YOUR CODE FROM EX03 HERE
-    # ridge regression: TODO
-    # ***************************************************
-    raise NotImplementedError
+    p = tx.shape[1]
+    lambda_ = 2 * lambda_ * tx.shape[0]
+    w_ridge = np.linalg.solve(tx.T @ tx + lambda_ * np.identity(p), tx.T @ y)
+    return w_ridge.flatten()
